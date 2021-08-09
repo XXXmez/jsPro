@@ -168,7 +168,13 @@ console.log(' ');console.log(' ');
 }
 
 console.log('');console.log('');
-// Система контроля версий Git
+// 10.Система контроля версий Git
 {
+    console.log('10.Система контроля версий Git');
+}
 
+console.log('');console.log('');
+// 11. Как работать с GitHub с разных компьютеров, gitignore и Git Kraken
+{
+    console.log('11. Как работать с GitHub с разных компьютеров, gitignore и Git Kraken');
 }
