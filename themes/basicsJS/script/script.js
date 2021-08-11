@@ -189,5 +189,30 @@ console.log('');console.log('');
     // Если на github и на ПК не совпадают версии файла
     // git pull
     // операция мердж
+
+}
+
+console.log('');console.log('');
+// 12. Практика, ч.1. Начинаем создавать приложение
+{
+    console.log('12. Практика, ч.1. Начинаем создавать приложение');
     
+    const numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?", "");
+
+    const personalMovieDB = {
+        count: numberOfFilms,
+        movies: {},
+        actors: {},
+        genres: [],
+        privat: false
+    };
+
+    let oneMovie = prompt('Один из последних просмотренных фильмов?', "");
+    let oneGrade = prompt("На сколько его оцените?", "");
+    let twoMovie = prompt('Один из последних просмотренных фильмов?', "");
+    let twoGrade = prompt("На сколько его оцените?", "");
+    personalMovieDB.movies[oneMovie] = oneGrade;
+    personalMovieDB.movies[twoMovie] = twoGrade
+    console.log(personalMovieDB);
+
 }
