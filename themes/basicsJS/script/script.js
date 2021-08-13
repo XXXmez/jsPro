@@ -197,7 +197,7 @@ console.log('');console.log('');
 {
     console.log('12. Практика, ч.1. Начинаем создавать приложение');
     
-    const numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?", "");
+    /*const numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?", "");
 
     const personalMovieDB = {
         count: numberOfFilms,
@@ -212,7 +212,49 @@ console.log('');console.log('');
     let twoMovie = prompt('Один из последних просмотренных фильмов?', "");
     let twoGrade = prompt("На сколько его оцените?", "");
     personalMovieDB.movies[oneMovie] = oneGrade;
-    personalMovieDB.movies[twoMovie] = twoGrade
-    console.log(personalMovieDB);
+    personalMovieDB.movies[twoMovie] = twoGrade;
+    console.log(personalMovieDB);*/
+
+}
+
+console.log('');console.log('');
+// 13. Условия
+{
+    console.log('13. Условия');
+    
+    if (4 == 9) {
+        console.log('ok');
+    } else {
+        console.log('error');
+    }
+
+    const num = 50;
+    if (num < 49) {
+        console.log('error');
+    } else if (num > 100) {
+        console.log('Много');
+    } else {
+        console.log('ok');
+    }
+
+    // Другой синтаксис при помощи тернарного оператора
+
+    (num === 50) ? console.log('ok') : console.log('error');
+
+    // switch
+
+    switch(num) {
+        case 49: 
+            console.log('error');
+            break;
+        case 50: 
+            console.log('ok');
+            break;
+        case 100:
+            console.log('много');
+            break;
+        default:
+            console.log('не знаю');
+    }
 
 }
