@@ -280,7 +280,7 @@ console.log('');console.log('');
     for (let i = 1; i < 8; i++) {
         if (i == 6) {
             //break;        // прервали цикли когда он достиг нужного момента
-            continue;
+            continue;       // пропуск нужного нам шага
             
         }
         console.log(i);
