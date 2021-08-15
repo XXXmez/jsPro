@@ -35,9 +35,19 @@
 - [ ] Async, defer, dynamic scripts
 
 ### JavaScript in work
-- [ ] Name link
-- [ ] Name link
-- [ ] Name link
+- [ ] ClassList and Event Delegation
+- [ ] Create tabs in a new project
+- [ ] Scripts and their execution time. setTimeout and setInterval
+- [ ] Working with dates
+- [ ] How to create a countdown timer on the website
+- [ ] Document options, windows and work with them
+- [ ] Create a modal window
+- [ ] Modal window modifications
+- [ ] Constructor functions
+- [ ] Call context. This
+- [ ] Classes (ES6)
+- [ ] Using classes in real work
+- [ ] Rest operator and default parameters (ES6)
 
 ### Advanced JavaScript
 
