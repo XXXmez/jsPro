@@ -1,4 +1,3 @@
-# jsPro
 # Learning JavaScript + React 
 ## My Learning the JavaScript Programming Language and the React Framework
 
