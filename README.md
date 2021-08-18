@@ -11,7 +11,7 @@
 - [X] Practice 1: Getting started creating an application
 - [X] Conditions
 - [X] Cycles
-- [ ] Practice 2: Applying conditions and loops
+- [X] Practice 2: Applying conditions and loops
 - [ ] Functions, arrow functions (ES6)
 - [ ] Methods and properties of strings and numbers
 - [ ] Practice 3: Using functions
