@@ -293,7 +293,7 @@ console.log('');console.log('');
 // 15. Практика, ч.2. Применяем условия и циклы
 {
     console.log('15. Практика, ч.2. Применяем условия и циклы');
-    
+    /*---------------------
     let numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?", "");
 
     const personalMovieDB = {
@@ -320,6 +320,7 @@ console.log('');console.log('');
         
         i++;
     };
+    ---------------------*/
 
     /*for (let i = 0; i < 2; i++) {
         let mov = prompt('Один из последних просмотренных фильмов?', "");
@@ -352,7 +353,7 @@ console.log('');console.log('');
     }
     while (i < 2);*/
 
-    
+    /*---------------------
     if (personalMovieDB.count < 10 && personalMovieDB.count >= 1) {
         console.log('Мало, мало...');
     } else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30) {
@@ -364,5 +365,109 @@ console.log('');console.log('');
     }
 
     console.log(personalMovieDB);
+    ---------------------*/
 
+}
+
+console.log('');console.log('');
+// 16. Функции, стрелочные ф-ции (ES6)
+{
+    console.log('16. Функции, стрелочные ф-ции (ES6)');
+
+    let num = 20;
+
+    function showFirstMessage (text) {
+        console.log(text);
+        num = 30;
+    }
+    showFirstMessage('Привет ^-^');
+    console.log(num);
+
+    function calc(a,b) {
+        return a + b
+    }
+    console.log(calc(5,4));
+
+    function ret() {
+        let num = 50;
+        return num;
+    }
+    let anotherNum = ret();
+    console.log(anotherNum);
+
+    // function declaration
+    function foo() {
+        // код
+        // можно вызвать когда угодно
+    }
+
+    // function expression
+    let foo2 = function() {
+        // код
+        // можно вызвать только после объявления
+    };
+
+    const logger = function(){
+        console.log('FE');
+    };
+    logger();
+
+    // стрелочная функция
+    const calc2 = (a,b) => {return a + b};
+    console.log(calc2(4,3));
+    // не имеет своего контекста this
+
+
+    //Замыкания, функции изнутри
+    //Лексическое окружение
+    function funcFoo() {
+        let io = 1;     // переменные внутри функции это свойства LexicalEnvironment
+                        // в отличие от window, LexicalEnvironment - скрыт
+    }
+    //пример
+    function sayHi(name) {
+        // LexicalEnvironment = { name: 'Вася', phrase: undefined }
+        let phrase = 'Привет ' + name;
+        // LexicalEnvironment = { name: 'Вася', phrase: 'Привет, Вася'}
+        console.log(phrase);
+    }
+    sayHi('Руслан');
+
+    
+    //Доступ ко внешним переменным
+    let userName = "Вася";
+    function sayHi2() {
+    console.log( userName ); // "Вася"
+    }
+
+    //Всегда текущее значение
+    //берёт то значение, которое там есть на момент обращения
+    let phrase = 'Привет';
+    function sayhi3(name) {
+        console.log(phrase + ', ' + name);
+    }
+    sayhi3('Иван');
+    phrase = 'Пока';
+    sayhi3('Евген');
+
+    //Вложенные функции
+    function sayHiBye(firstName, lastName) {
+        console.log('Привет, ', getFullName());
+        console.log('Пока, ', getFullName());
+
+        function getFullName() {
+            return firstName + " " + lastName;
+        }
+    }
+    sayHiBye('Влад', 'Клад')
+
+    //если не найденна переменная во внешнем объекте  то она ищется еще в более внешнем
+    let phrase4 = 'Как так';
+    function say4(){
+        function go1(){
+            console.log(phrase4);
+        }
+        go1();
+    }
+    say4();
 }
