@@ -12,7 +12,7 @@
 - [X] Conditions
 - [X] Cycles
 - [X] Practice 2: Applying conditions and loops
-- [ ] Functions, arrow functions (ES6)
+- [X] Functions, arrow functions (ES6)
 - [ ] Methods and properties of strings and numbers
 - [ ] Practice 3: Using functions
 - [ ] Callback functions

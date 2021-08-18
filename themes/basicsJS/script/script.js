@@ -470,4 +470,7 @@ console.log('');console.log('');
         go1();
     }
     say4();
+
+    //Возврат функции
+    
 }
