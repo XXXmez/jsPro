@@ -288,3 +288,81 @@ console.log('');console.log('');
     
 
 }
+
+console.log('');console.log('');
+// 15. Практика, ч.2. Применяем условия и циклы
+{
+    console.log('15. Практика, ч.2. Применяем условия и циклы');
+    
+    let numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?", "");
+
+    const personalMovieDB = {
+        count: numberOfFilms,
+        movies: {},
+        actors: {},
+        genres: [],
+        privat: false
+    };
+
+    let i = 0;
+    while (i < 2) {
+        let mov = prompt('Один из последних просмотренных фильмов?', "");
+        let grd = prompt("На сколько его оцените?", "");
+
+        if (mov != null && grd != null && mov != "" && grd != "" && mov.length < 50) {
+            personalMovieDB.movies[i+1 + ": " + mov] = grd;
+            console.log('Записано');
+        } else {
+            console.error('Error: пустые строки');
+            i--;
+        }
+
+        
+        i++;
+    };
+
+    /*for (let i = 0; i < 2; i++) {
+        let mov = prompt('Один из последних просмотренных фильмов?', "");
+        let grd = prompt("На сколько его оцените?", "");
+
+        if (mov != null && grd != null && mov != "" && grd != "" && mov.length < 50) {
+            personalMovieDB.movies[i+1 + ": " + mov] = grd;
+            console.log('Записано');
+        } else {
+            console.error('Error: пустые строки');
+            i--;
+        }
+    }*/
+
+    /*let i = 0;
+    do {
+        let mov = prompt('Один из последних просмотренных фильмов?', "");
+        let grd = prompt("На сколько его оцените?", "");
+
+        if (mov != null && grd != null && mov != "" && grd != "" && mov.length < 50) {
+            personalMovieDB.movies[i+1 + ": " + mov] = grd;
+            console.log('Записано');
+        } else {
+            console.error('Error: пустые строки');
+            i--;
+        }
+
+        
+        i++;
+    }
+    while (i < 2);*/
+
+    
+    if (personalMovieDB.count < 10 && personalMovieDB.count >= 1) {
+        console.log('Мало, мало...');
+    } else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30) {
+        console.log('Вы зритель!');
+    } else if (personalMovieDB.count >= 30) {
+        console.log("Вы киноман!");
+    } else {
+        console.log('Error');
+    }
+
+    console.log(personalMovieDB);
+
+}
