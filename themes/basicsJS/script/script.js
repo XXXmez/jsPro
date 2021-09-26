@@ -389,10 +389,10 @@ console.log('');console.log('');
     console.log(calc(5,4));
 
     function ret() {
-        let num = 50;
-        return num;
+        let num = 50;   // переменная внутри области видимости функции ret()
+        return num;     // выводим переменную
     }
-    let anotherNum = ret();
+    let anotherNum = ret(); // записываем ее
     console.log(anotherNum);
 
     // function declaration
@@ -409,12 +409,14 @@ console.log('');console.log('');
 
     const logger = function(){
         console.log('FE');
-    };
+    };      // ставится обязательно ; , так как создается переменная, во избежание ошибок
     logger();
 
     // стрелочная функция
     const calc2 = (a,b) => {return a + b};
     console.log(calc2(4,3));
+    console.log(calc2(5,6));
+    console.log(calc2(10,6));
     // не имеет своего контекста this
 
 
@@ -473,4 +475,133 @@ console.log('');console.log('');
 
     //Возврат функции
     
+}
+
+console.log('');console.log('');
+// 17. Методы и свойства строк и чисел
+console.log('17. Методы и свойства строк и чисел');
+{
+    const str = "test";
+    const arr = [1,2,3];
+    
+    console.log(str.length);
+    console.log(arr.length);        // свойство length, свойства пишутся через точку (.), методы вызываются через круглые скобки ()
+
+    // все методы можно найти на https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/String
+    //                      и на https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Number
+
+
+    //console.log(str[2] = 'd');  // не работает
+    console.log(str.toUpperCase());             // .toUpperCase() - метод, возвращает новое значение не изменяя старое
+    console.log(str.toLowerCase());
+    console.log(str);
+
+    const fruit = "Some fruit";
+
+    // indexOf - поиск подстроки
+    console.log(fruit.indexOf("fruit"));        // => 5, позиция с которой нашелся данный элемент
+    console.log(fruit.indexOf("q"));            // => -1, значит что такого элемента вообще нет
+
+    const logg = "Привет мир, как дела?"
+    let inP = 'мир';
+    let inPLn = inP.length;
+    let inOF = logg.indexOf(inP);
+    console.log(inOF);
+    console.log(logg.slice(7, 10));
+    console.log(logg.slice(inOF, inOF+inPLn));
+    console.log(logg.slice(-5, -1));
+
+    console.log(logg.substring(7, 10));     // substring можно писать первое значение больше чем второе, но минусовое значение записывается как 0
+
+    console.log(logg.substr(7, 3));         // substr первый метод это где начинается и второй метод это длина вырезаемого
+
+
+    // для работы с числами есть библиотека Math она встроенна в браузер
+    
+    const num = 12.2;
+    console.log(num);
+    console.log(Math.round(num));
+
+    // в числах есть методы которые преобразуют строки в числа
+    const test = '12.2px';
+    console.log(test);
+    console.log(parseInt(test));            // => 12 в числовом типе данных, без дробных значений
+    console.log(parseFloat(test));          // => 12.2, для возврата числа с дробными значениями
+
+}
+
+console.log('');console.log('');
+// 15. Практика, ч.3. Используем функции
+console.log('18. Практика, ч.3. Используем функции');
+{
+    
+    let numberOfFilms;
+
+    function start () {
+        numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?", "");
+
+        while (numberOfFilms == "" || numberOfFilms == null || isNaN(numberOfFilms)) {
+            numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?", "");
+        }
+    }
+    //start();
+
+    const personalMovieDB = {
+        count: numberOfFilms,
+        movies: {},
+        actors: {},
+        genres: [],
+        privat: false
+    };
+
+    function rememberMyFilms () {
+        for (let i = 0; i < 2; i++) {
+            let mov = prompt('Один из последних просмотренных фильмов?', "");
+            let grd = prompt("На сколько его оцените?", "");
+    
+            if (mov != null && grd != null && mov != "" && grd != "" && mov.length < 50) {
+                personalMovieDB.movies[i+1 + ": " + mov] = grd;
+                console.log('Записано');
+            } else {
+                console.error('Error: пустые строки');
+                i--;
+            }
+        }
+    }
+    //rememberMyFilms();
+
+    function detectPersonalLevel() {
+        if (personalMovieDB.count < 10 && personalMovieDB.count >= 1) {
+            console.log('Мало, мало...');
+        } else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30) {
+            console.log('Вы зритель!');
+        } else if (personalMovieDB.count >= 30) {
+            console.log("Вы киноман!");
+        } else {
+            console.log('Error');
+        }
+    }
+    //detectPersonalLevel();
+
+    function showMyDB () {
+        if (!personalMovieDB.privat) {
+            console.log("function showMyDB: ", personalMovieDB);
+        }
+    }
+    showMyDB();
+
+    function writeYourGenres () {
+        let genres;
+        for (let i = 0; i < 3; i++) {
+            genres = prompt(`Ваш любимый жанр под № ${i+1}:`, '');
+            if (genres != null && genres != "") {
+                personalMovieDB.genres[i] = genres;
+                console.log('Записано');
+            } else {
+                console.error('Error: пустые строки');
+                i--;
+            }
+        }
+    }
+    writeYourGenres();
 }
