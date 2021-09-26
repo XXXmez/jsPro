@@ -531,7 +531,7 @@ console.log('17. Методы и свойства строк и чисел');
 }
 
 console.log('');console.log('');
-// 15. Практика, ч.3. Используем функции
+// 18. Практика, ч.3. Используем функции
 console.log('18. Практика, ч.3. Используем функции');
 {
     
@@ -588,7 +588,7 @@ console.log('18. Практика, ч.3. Используем функции');
             console.log("function showMyDB: ", personalMovieDB);
         }
     }
-    showMyDB();
+    //showMyDB();
 
     function writeYourGenres () {
         let genres;
@@ -603,5 +603,36 @@ console.log('18. Практика, ч.3. Используем функции');
             }
         }
     }
-    writeYourGenres();
+    //writeYourGenres();
+}
+
+console.log('');console.log('');
+// 19. Callback - функции
+console.log('19. Callback - функции');
+{
+    function first() {
+        // do something
+        // данная функция имеет задержку
+        setTimeout(function() {
+            console.log(1);
+        }, 500)
+    }
+
+    function second() {
+        console.log(2);
+    }
+
+    first();
+    second();
+
+    // Callback - это функция которая должна бть выполнена после того как другая функция завершила свое выполнение
+
+    function learnJS (lang, callback) {
+        console.log(`Я учу: ${lang}`);
+        callback();
+    }
+    function done() {
+        console.log('Я прошел этот урок');
+    }
+    learnJS('JavaScript', done);
 }
