@@ -614,7 +614,7 @@ console.log('19. Callback - функции');
         // do something
         // данная функция имеет задержку
         setTimeout(function() {
-            console.log(1);
+            //console.log(1);
         }, 500)
     }
 
@@ -635,4 +635,74 @@ console.log('19. Callback - функции');
         console.log('Я прошел этот урок');
     }
     learnJS('JavaScript', done);
+}
+
+console.log('');console.log('');
+// 20. Объекты, деструктуризация объектов (ES6)
+console.log('20. Объекты, деструктуризация объектов (ES6)'); 
+{
+    // объекты в JS это ассоциативные массивы
+    
+    //const obj = new Object();               // создали объект, старое обозначение
+    const options = {       // объекты это структуры которые могут сохрянять в себе любые типы данных, в формате (ключ: значение), так же могут быть вложенные массивы объекты, и встроееные методы функции
+        name: "test",
+        width: 1024,
+        height: 1024,
+        colors: {
+            border: "black",
+            background: "red"
+        },
+        makeTest: function() {      // метод который работает внутри объекта options
+            console.log("Test");
+        }
+    };
+
+    options.makeTest();         // метод объекта
+
+    console.log(options);
+    //delete options.name;        // удалили свойство name
+    //console.log(options);       // проверил удаление
+    
+    let counter = 0;
+    for (let key in options) {
+        if (typeof(options[key]) == 'object') {
+            for (let i in options[key]) {
+                console.log(`Свойство ${i} имеет значение ${options[key][i]}`);
+                counter++;
+            }
+        } else {
+            console.log(`Свойство ${key} имеет значение ${options[key]}`);
+            counter++;
+        }
+        
+    }
+    console.log(counter);       // счетчик из урока но потом сделали такой же как мой, но такой не совсем удобный способ есть лучше метод
+
+    /*for (let key of options) {            // тоже перебор но не работает на объектах
+        console.log(`Свойство ${key} имеет значение ${options[key]}`);
+    }*/
+
+    // У обхектов нет свойство length 
+    // для подсчета количества свойст можно использовать
+    // счеткик
+    let sch = 0;            // мой способ
+    for (let key in options) {
+        sch++;
+    }
+    console.log(`количество элементов в объекте ${sch}`);
+
+    // функции и методы которые есть внутри объекта
+    // метод Object.keys() - берет наш обхект и на его основании создает массив в котором все элементы это ключи находящиеся на первой части пара ключ
+    console.log(Object.keys(options).length); // простой способ для ипределения количества элементов в объекте
+
+
+    // так же можно встретить свойства акцессоры
+    // get и set
+    // новая возможность из ES6
+    // дестриктуризация объекта
+    const {border, background} = options.colors;
+    console.log(border);
+    console.log(background); 
+
+
 }
