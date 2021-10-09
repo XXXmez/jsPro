@@ -704,5 +704,58 @@ console.log('20. Объекты, деструктуризация объекто
     console.log(border);
     console.log(background); 
 
+}
 
+console.log('');console.log('');
+// 21. Массивы и псевдомассивы
+console.log('21. Массивы и псевдомассивы');
+{
+    const arr = [1, 2, 3, 4, 5];
+    console.log(arr.length);        // длинна массива (считается как последний индекс + 1, в нашем случае 4 + 1)
+    arr[15] = 7;
+    console.log("arr", arr.length);
+
+    arr.pop()               // Удаляет последний массив
+    console.log(arr);       // => [1, 2, 3, 4]
+    arr.push(10);           // Добавить 10 в конец массива
+    console.log(arr);       // => [1, 2, 3, 4, 10]
+
+    // shift и unshift меняет индексы находящихся раньше элементов в массиве
+    arr.shift()             // удаляет элемент в начале массива
+    console.log(arr);       // => [2, 3, 4, 10]
+    arr.unshift(8)          // добавляет элемент в начало массива
+    console.log(arr);       // => [8, 2, 3, 4, 10]
+
+    for (let i = 0; i < arr.length; i++) {          // Переборка элементов
+        console.log("Способ первый: ", arr[i]);
+    }
+
+    for (let i of arr) {                            // Второй способ переборки массива 
+        console.log("Способ второй: ", i);
+    }
+
+    arr.forEach(function(elem, numOrd, arrRef){
+        //console.log('Элемент: ', elem);
+        //console.log('Номер по порядку: ', numOrd);
+        //console.log('Ссылка на массив: ', arrRef);
+        console.log(`Элемент ${elem} находится на ${numOrd} позиции, в массиве ${arrRef}`);
+    })
+
+    //const str = prompt('', '');                 // первое, второе, третье, четвертое
+    const str = "первое, второе, третье, четвертое";
+    const product = str.split(', ');            // разделили строку по ', ' получили массив элементов
+    product.sort()                              // сотритовка элементов массива как строк, ВНИМАНИЕ с числами
+    console.log(product.join("; "));            // соединили массив элементов через '; ' и получили строку
+
+    const arr2 = [2, 21, 44, 31, 33, 11, 1, 8, 5]
+    arr2.sort()
+    console.log(arr2);          // => [1, 11, 2, 21, 31, 33, 44, 5, 8] - так как он преобразовал числа в строки и сотрирует их так
+    function compareNum(a, b) {     // функция для сортировки массива
+        return a-b;
+    }
+    arr2.sort(compareNum)
+    console.log(arr2);          // => [1, 2, 5, 8, 11, 21, 31, 33, 44]
+
+    // псевдомассивы
+    // не имеют методов как массивы
 }
