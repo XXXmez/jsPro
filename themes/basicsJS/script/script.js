@@ -759,3 +759,130 @@ console.log('21. Массивы и псевдомассивы');
     // псевдомассивы
     // не имеют методов как массивы
 }
+
+console.log('');console.log('');
+// 22. Передача по ссылке или по значению, Spread оператор (ES6-ES9)
+console.log('22. Передача по ссылке или по значению, Spread оператор (ES6-ES9)');
+{
+    let a = 5;      // переменная a равна 5
+    let b = a;      // переменная b равна значению переменной b
+
+    b = b + 5;      // к значению переменной b прибавляем 5
+
+    console.log("a: ", a);      // => 5
+    console.log("b: ", b);      // => 10
+
+    const obj = {       // создали объект с такими же переменными
+        a:5,
+        b:1
+    };
+
+    const copy = obj;       // скопировалли объект
+    copy.a = 10;            // в новом объекте поменяли значение свойства а на 10
+
+    console.log("copy: ", copy);        // => {a: 10, b: 1}
+    console.log("obj:  ", obj);         // => {a: 10, b: 1}
+                                        // стори числа и логичесские данные передаются по значению
+                                        // то есть сдесь b = a переменная а заменяется на 5
+                                        // а при работе с объектами/массивами/функциями и тд
+                                        // то идет передача по ссылке copy = obj
+                                        // модифицируя копию мы мод начальный объект
+
+    // Правильное копирование
+    function copys (mainObj) {
+        let objCopy = {};
+        for(let key in mainObj) {
+            objCopy[key] = mainObj[key];
+        }
+        return objCopy;
+    }
+    const numbers = {
+        a:2,
+        b:5,
+        c: {
+            x:7,
+            y:4
+        }
+    };
+    const newNumbersObj = copys(numbers)
+
+    newNumbersObj.a = 10;
+    newNumbersObj.c.x = 11;         // не сработает так как это поверхностная копия объекта
+                                    // не работает на вложенной структуре
+
+    console.log("numbers:       ", numbers);               // => {a: 2, b: 5, c: {…}}
+    console.log("newNumbersObj: ", newNumbersObj);         // => {a: 10, b: 5, c: {…}}
+
+
+    // Второй способ objectAssign
+    const add = {
+        d: 17,
+        e: 20
+    };
+    //console.log(Object.assign(numbers, add));       // => {a: 2, b: 5, c: {…}, d: 17, e: 20}
+                                                    // первый аргумент объект в который мы что-то поместим,
+                                                    // второй аргумент тот который мы хотим поместить в первый
+    const clone1 = Object.assign({}, add);
+    clone1.d = 20;
+    console.log("add:    ", add);
+    console.log("clone1: ", clone1);
+    
+
+    // тестирую
+    const newObjA = {
+        a: 1,
+        b: 2,
+        x: {
+            a: 3,
+            b: 0
+        }
+    };
+    const newObjB = {};
+    Object.assign(newObjB, newObjA)     // копируем один объект в другой
+    newObjB.a = 10;                     // перезаписываем в копии значение
+    newObjB.x.b = 7;                    // все так же работает как и прошлый метод только в поверхностными объектами
+    console.log("newObjA: ", newObjA);               // => {a: 1, b: 2}
+    console.log("newObjB: ", newObjB);               // => {a: 10, b: 2}
+
+
+    // третий метод 
+    const oldArray = ['a', 'b', 'c'];
+    const newArray = oldArray.slice();      // array.slice() -> метод для массивов который создает копию старого массива в новый
+    newArray[1] = 'Привет, я измененный второй элемент';
+    console.log("oldArray: ", oldArray);      // => ['a', 'b', 'c']
+    console.log("newArray: ", newArray);      // => ['a', 'Привет, я измененный второй элемент', 'c']
+    
+    
+    // новые стандарты из ES6-8
+    // четверты способ - оператор разворота spread, он разворачивает структуру и превращает ее в набор данных
+
+    const video = ['home', 'car', 'dog'];
+    const blogs = ['wordpress', 'joomla', 'blogger'];
+    const internet = [...video, ...blogs, 'vk', 'facebook'];
+    console.log(internet);
+
+    function loge(a, b, c) {
+        console.log(a);
+        console.log(b);
+        console.log(c);
+    }
+    const num = [2, 5, 7];
+    
+    console.log(...num);
+
+    const array3 = ['a', 'b', 'c'];
+    const array4 = [...array3];
+    array4[2] = 'опять измененный элемент'
+    console.log(array3);
+    console.log(array4);
+
+    const obj3 = {
+        a: 1,
+        b: 2
+    };
+    const obj4 = {...obj3};
+    obj4.a = 10;
+    console.log(obj3);
+    console.log(obj4);
+
+}
