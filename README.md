@@ -13,12 +13,12 @@
 - [X] Cycles
 - [X] Practice 2: Applying conditions and loops
 - [X] Functions, arrow functions (ES6)
-- [ ] Methods and properties of strings and numbers
-- [ ] Practice 3: Using functions
-- [ ] Callback functions
-- [ ] Objects, object destructuring (ES6)
-- [ ] Arrays and pseudo-arrays
-- [ ] Pass by reference or by value, Spread operator (ES6-ES9)
+- [X] Methods and properties of strings and numbers
+- [X] Practice 3: Using functions
+- [X] Callback functions
+- [X] Objects, object destructuring (ES6)
+- [X] Arrays and pseudo-arrays
+- [X] Pass by reference or by value, Spread operator (ES6-ES9)
 - [ ] OOP fundamentals, prototype-oriented inheritance
 - [ ] Practice 4: Using Objects
 - [ ] We catch errors in our code using the developer console. Breakpoints
