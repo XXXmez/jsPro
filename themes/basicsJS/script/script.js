@@ -933,3 +933,98 @@ console.log('23. Основы ООП, прототипно-ориентиров�
 
     console.log(jonh);
 }
+
+console.log('');console.log('');
+// 24. Практика , ч4. Используем объекты
+console.log('24. Практика , ч4. Используем объекты');
+{
+    const personalMovieDB = {
+        count: 0,
+        movies: {},
+        actors: {},
+        genres: [],
+        privat: false,
+        start: function () {
+            personalMovieDB.count = +prompt("Сколько фильмов вы уже посмотрели?", "");
+
+            while (personalMovieDB.count == "" || personalMovieDB.count == null || isNaN(personalMovieDB.count)) {
+                personalMovieDB.count = +prompt("Сколько фильмов вы уже посмотрели?", "");
+            }
+        },
+        rememberMyFilms: function () {
+            for (let i = 0; i < 2; i++) {
+                let mov = prompt('Один из последних просмотренных фильмов?', "");
+                let grd = prompt("На сколько его оцените?", "");
+        
+                if (mov != null && grd != null && mov != "" && grd != "" && mov.length < 50) {
+                    personalMovieDB.movies[i+1 + ": " + mov] = grd;
+                    console.log('Записано');
+                } else {
+                    console.error('Error: пустые строки');
+                    i--;
+                }
+            }
+        },
+        detectPersonalLevel: function () {
+            if (personalMovieDB.count < 10 && personalMovieDB.count >= 1) {
+                console.log('Мало, мало...');
+            } else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30) {
+                console.log('Вы зритель!');
+            } else if (personalMovieDB.count >= 30) {
+                console.log("Вы киноман!");
+            } else {
+                console.log('Error');
+            }
+        },
+        showMyDB: function () {
+            if (!personalMovieDB.privat) {
+                console.log("function showMyDB: ", personalMovieDB);
+            }
+        },
+        writeYourGenres: function () {
+            let genres;
+            for (let i = 0; i < 1; i++) {           // i < 3 или i < 1
+                /*genres = prompt(`Ваш любимый жанр под № ${i+1}:`, '');
+                if (genres != null && genres != "") {
+                    personalMovieDB.genres[i] = genres;
+                    console.log('Записано');
+                } else {
+                    console.error('Error: пустые строки');
+                    i--;
+                }*/
+
+                // Другой вариант
+                let genres = prompt(`Введите ваши любимые жанры через запятую`, '').toLowerCase();
+                if (genres != null && genres != "") {
+                    personalMovieDB.genres = genres.split(', ');
+                    personalMovieDB.genres.sort();
+                    console.log('Записано');
+                } else {
+                    console.error('Error: пустые строки');
+                    i--;
+                }
+            }
+
+            
+
+            personalMovieDB.genres.forEach((e,n) => {
+                console.log(`Любимый жанр №${n+1} - это ${e}`);
+            })
+        },
+        toggleVisibleMyDB: function () {
+            if (!this.privat) {
+                this.privat = true;
+            } else {
+                this.privat = false;
+            }
+        }
+
+    };
+
+    personalMovieDB.start();
+    personalMovieDB.rememberMyFilms();
+    personalMovieDB.detectPersonalLevel();
+    personalMovieDB.showMyDB();
+    personalMovieDB.writeYourGenres();
+    personalMovieDB.toggleVisibleMyDB();
+}
