@@ -1055,3 +1055,47 @@ console.log('25. Отлавливаем ошибки в своем коде пр
         return a - b;
     }
 }
+
+console.log('');console.log('');
+// 26. Динамическая типизация в JS
+console.log('26. Динамическая типизация в JS');
+{
+    // что-то превратить в строку
+    // старый способ
+    console.log(typeof(String(null)));
+    console.log(typeof(String(4)));
+    // новый способ - канкатинация
+    console.log(typeof(5 + ''));
+    console.log(typeof(null + ''));         // при сложении со строкой получается строка
+    // применение
+    const num = 5;
+    console.log('https://vk.com/catalog/' + num)
+    
+    const fontSize = 26 + 'px';
+
+    // предратить что-то в число
+    // 1 способ
+    console.log(typeof(Number('4')));
+    // 2 способ - унарный плюс
+    console.log(typeof(+'4'));
+    // 3 способ
+    console.log(typeof(parseInt('15px', 10)));
+    // применение
+    //let answer = +prompt('hel', '');
+
+    // в булиновое значение
+    // false - это 0, "", null, undefined, NaN;
+    // 1
+    let switcher = null;
+    if (switcher) {
+        console.log('working....');
+    }
+    switcher = 1
+    if (switcher) {
+        console.log('working....');
+    }
+    // 2
+    console.log(typeof(Boolean('4')));
+    // 3
+    console.log(typeof(!!'привет'));
+}
