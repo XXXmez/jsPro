@@ -1099,3 +1099,27 @@ console.log('26. Динамическая типизация в JS');
     // 3
     console.log(typeof(!!'привет'));
 }
+
+
+console.log('');console.log('');
+// 27. Задачи с собеседований на понимание основ
+console.log('27. Задачи с собеседований на понимание основ');
+{
+    let x = 5;
+    //alert(x++);       // такая запись сначала возвращает нашу исходную переменную а потом только добавялет еденичку
+
+    console.log([]+ false - null + true);
+
+    let y = 1; x = y = 2; console.log(x);
+
+    console.log([] + 1 + 2);
+    console.log("1"[0]);
+    console.log(2 && 1 && null && 0 && undefined);
+    let a = 4, b = 7; console.log(!!(a&&b)); console.log(a&&b);
+    console.log(null || 2 && 3 || 4);
+    console.log([1,2,3]===[1,2,3]);
+    console.log(+"Infinity");
+    console.log('Ёжик' > 'яблоко');
+    console.log(0 || '' || 2 || undefined || true || false);
+
+}
