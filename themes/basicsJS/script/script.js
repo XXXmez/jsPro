@@ -1021,10 +1021,37 @@ console.log('24. Практика , ч4. Используем объекты');
 
     };
 
+    /*
     personalMovieDB.start();
     personalMovieDB.rememberMyFilms();
     personalMovieDB.detectPersonalLevel();
     personalMovieDB.showMyDB();
     personalMovieDB.writeYourGenres();
     personalMovieDB.toggleVisibleMyDB();
+    */
+}
+
+console.log('');console.log('');
+// 25. Отлавливаем ошибки в своем коде при помощи консоли разработчика. Breakpoints
+console.log('25. Отлавливаем ошибки в своем коде при помощи консоли разработчика. Breakpoints');
+{
+    function hello() {
+        console.log('Hello World');
+        //debugger;
+    }
+
+    hello();
+
+    function  hi() {
+        console.log('Say hi');
+    }
+
+    hi();
+
+    const arr = [1, 14, 4, 30, 54],
+          sorted = arr.sort(compareNum);
+
+    function compareNum (a, b) {
+        return a - b;
+    }
 }
