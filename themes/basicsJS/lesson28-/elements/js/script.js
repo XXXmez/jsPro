@@ -21,20 +21,3 @@ hearts.forEach(item => console.log(item));
 
 const oneHeart = document.querySelector('.heart');
 console.log(oneHeart);
-
-
-// перебрать все div и вывести в консоль те у которых есть класс circle
-/*const arrDiv = document.querySelectorAll('div');
-for (let item of arrDiv) {
-    if (item.classList == 'circle') {
-        console.log(item);
-    }
-}*/
-
-// при клике на button меняет его цвет на красный
-/*const buttons = document.querySelectorAll('button');
-buttons.forEach((e) => {
-    e.addEventListener('click', () => {
-        e.style.backgroundColor='blue';
-    });
-});*/
