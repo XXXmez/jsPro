@@ -76,3 +76,29 @@ button {
 	margin-top: 30px;
 	color: #fff;
 }
+
+.btn31 {
+   width: 150px;
+   height: 50px;
+   background-color: green;
+   border: none;
+   color: #fff;
+   border-radius: 10px;
+   outline: none;
+   cursor: pointer;
+   transition: 0.3s;
+ }
+ .btn31:hover {
+   transform: scale(0.95);
+ }
+ .overlay {
+   background-color: pink;
+   width: 200px;
+   height: 100px;
+   text-align: center;
+   line-height: 100px;
+ }
+ .a31 {
+   display: block;
+   margin-top: 30px;
+ }

@@ -110,10 +110,18 @@ div.insertAdjacentHTML('afterend', '<h2>hi</h2>')
 
 
 // сокращенный поиск элемента на странице
-let dqs = function (elem){
+/*let dqs = function (elem){
     return document.querySelector(elem)
 };
 let elem1 = dqs('#box');
 let elem2 = dqs('.circle');
 console.log(elem1);
-console.log(elem2);
+console.log(elem2);*/
+
+
+//События и их обработчики
+
+const btn31 = document.querySelector('#btn31')
+btn31.addEventListener('click', () => {
+    console.log(1);
+})
