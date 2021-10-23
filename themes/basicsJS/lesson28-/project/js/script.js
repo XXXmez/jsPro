@@ -18,45 +18,28 @@ const promoAdvImg = document.querySelectorAll('.promo__adv img'),
       promoInteractiveList = document.querySelector('.promo__interactive-list');
 
 // функция удаления переданных в нее массива или одного элемента
-let delAd = function(elem) {
-    if (elem.length > 1) {
-        for (let i = 0; i < elem.length; i++) {
-            elem[i].remove();
-        };
-        console.log('больше 1');
-    } else if (elem.length == 1) {
-        elem.remove();
-        console.log('равно 1');
-    } else {
-        console.log('ошибка в переданном значении в функцию delAd');
-    }
-    
-};
-delAd(promoAdvImg);
+promoAdvImg.forEach((item) => {
+    item.remove()
+})
 
 // заменяю текст
 promoGenre.textContent = 'драма';
 
 //заменяю картинку
-promoBg.style.background = 'url(../img/bg.jpg)';
+promoBg.style.backgroundImage = 'url(../img/bg.jpg)';
 
 // удаляю старый список просмотренных фильмов
-for (let i = 0; i < promoInteractiveItem.length; i++) {
-    promoInteractiveItem[i].remove();
-}
+promoInteractiveList.innerHTML = '';
 // сортировка
 movieDB.movies.sort();
 // вывожу новый список из массива
-for(let i = 0; i < movieDB.movies.length; i++) {
-    let liPII = document.createElement('li');
-    liPII.classList.add('promo__interactive-item');
-    let divDel = document.createElement('div');
-    divDel.classList.add('delete');
-    liPII.append(divDel);
-    liPII.textContent = `${i+1}: ${movieDB.movies[i]}`;
-    promoInteractiveList.append(liPII);
-}
-
+movieDB.movies.forEach((film, i) => {
+    promoInteractiveList.innerHTML += `
+        <li class="promo__interactive-item">${i+1}: ${film}
+            <div class="delete"></div>
+        </li>
+    `; 
+});
 
 
 /* Задания на урок:
