@@ -120,8 +120,39 @@ console.log(elem2);*/
 
 
 //События и их обработчики
+console.log('');console.log('');
+console.log('События и их обработчики');
 
-const btn31 = document.querySelector('#btn31')
-btn31.addEventListener('click', () => {
-    console.log(1);
-})
+const btn31 = document.querySelector('#btn31'),
+      overlay = document.querySelector('.overlay'),
+      btn31s = document.querySelectorAll('.btn31');
+
+//let i = 0;
+const deleteElement = (e) => {
+    console.log(e.currentTarget);
+    console.log(e.type);
+    //i++;
+    //if (i == 1) {
+    //    btn31.removeEventListener('click', deleteElement);
+    //}
+};
+
+
+//btn31.addEventListener('click', deleteElement);
+//overlay.addEventListener('click', deleteElement);
+
+btn31s.forEach(item => {
+    item.addEventListener('click', deleteElement, {once: true});
+});
+
+const link = document.querySelector('.a31');
+
+link.addEventListener('click', (e) => {
+    e.preventDefault();
+    console.log(e.target);
+});
+
+
+//Навигация по DOM - элементам, data-атрибуты, преимущество for/of
+console.log('');console.log('');
+console.log('Навигация по DOM - элементам, data-атрибуты, преимущество for/of');

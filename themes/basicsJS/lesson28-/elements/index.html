@@ -30,11 +30,34 @@
 
 
 		<!--События и их обработчики-->
-		<button class="btn31" id="btn31">Нажми меня</button>
+		<div class="overlay">
+			<button class="btn31" id="btn31">Нажми меня</button>
+		</div>
 		<button class="btn31">Нажми меня</button>
 		<button class="btn31">Нажми меня</button>
 		<a class="a31" href="https://www.youtube.com/">https://www.youtube.com/</a>
 
+		<!--Навигация по DOM - элементам, data-атрибуты, преимущество for/of-->
+		<div class="wrapper">
+			<div class="first">
+				<button></button>
+				<button id="current"></button>
+				<button></button>
+			</div>
+			<div class="second">
+				<ul>
+					<li>1</li>
+					<li>2</li>
+					<li data-current="3">3</li>
+	
+					<li>4</li>
+					<li>5</li>
+				</ul>
+			</div>
+			<div class="third"></div>
+		</div>
+
 		<script src="js/script.js"></script>
+
 	</body>
 </html>

@@ -19,15 +19,15 @@
 - [X] Objects, object destructuring (ES6)
 - [X] Arrays and pseudo-arrays
 - [X] Pass by reference or by value, Spread operator (ES6-ES9)
-- [ ] OOP fundamentals, prototype-oriented inheritance
-- [ ] Practice 4: Using Objects
-- [ ] We catch errors in our code using the developer console. Breakpoints
-- [ ] Dynamic typing in JS
-- [ ] Interview Tasks for Understanding the Basics
-- [ ] Retrieving items from a page
-- [ ] Actions with elements on the page
-- [ ] Practice 5: Practice Page Actions
-- [ ] Events and their handlers
+- [X] OOP fundamentals, prototype-oriented inheritance
+- [X] Practice 4: Using Objects
+- [X] We catch errors in our code using the developer console. Breakpoints
+- [X] Dynamic typing in JS
+- [X] Interview Tasks for Understanding the Basics
+- [X] Retrieving items from a page
+- [X] Actions with elements on the page
+- [X] Practice 5: Practice Page Actions
+- [X] Events and their handlers
 - [ ] DOM navigation - elements, data attributes, for / of advantage
 - [ ] Practice 6: Using Events on the Project Page
 - [ ] Events on mobile devices
