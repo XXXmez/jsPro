@@ -156,3 +156,34 @@ link.addEventListener('click', (e) => {
 //Навигация по DOM - элементам, data-атрибуты, преимущество for/of
 console.log('');console.log('');
 console.log('Навигация по DOM - элементам, data-атрибуты, преимущество for/of');
+
+//console.log(document.documentElement);
+//console.log(document.body.childNodes);
+
+// Получение элементов от родителя
+//console.log(document.body.firstChild);
+//console.log(document.body.firstElementChild);           // Получаем первый элемент в родителе
+//console.log(document.body.lastChild);
+
+
+// Получение родителя/соседей/друзей
+//console.log(document.querySelector('#current').parentNode.parentNode);
+//console.log(document.querySelector('#current').parentElement);
+
+// data-атрубуты
+// ищем следующий элемент после того который мы нашли
+//console.log(document.querySelector('[data-current="3"]').nextSibling);          // текстовый
+// ищем предыдущий элемент после того который мы нашли
+//console.log(document.querySelector('[data-current="3"]').previousSibling);      // текстовый
+// Аналогичные команды для получение элемента
+//console.log(document.querySelector('[data-current="3"]').nextElementSibling);           // Следующий элемент в родителе
+//console.log(document.querySelector('[data-current="3"]').previousElementSibling);       // Предыдущий элемент в родителе
+
+// Аналог childNodes в ручную
+for (let node of document.body.childNodes) {
+    if (node.nodeName == '#text' || node.nodeName == '#comment') {
+        continue;
+    }
+    
+    console.log(node);
+}
