@@ -1,4 +1,6 @@
 'use strict';
+document.addEventListener('DOMContentLoaded', () => {
+
 /*
 const box = document.getElementById('box');
 console.log(box);
@@ -180,10 +182,56 @@ console.log('Навигация по DOM - элементам, data-атрибу
 //console.log(document.querySelector('[data-current="3"]').previousElementSibling);       // Предыдущий элемент в родителе
 
 // Аналог childNodes в ручную
-for (let node of document.body.childNodes) {
+/*for (let node of document.body.childNodes) {
     if (node.nodeName == '#text' || node.nodeName == '#comment') {
         continue;
     }
     
     console.log(node);
-}
+}*/
+
+
+// События на мобильных устройствах
+console.log('');console.log('');
+console.log('События на мобильных устройствах');
+    // Всего существует 6 мобильных событий
+    // начинаются они со слова touch
+    // touchstart - касание пальцем
+    // touchmove - проведение по элементы
+    // touchend - отрыв от элемента
+    // touchenter - проведение пальцем по экрану и попадение на эелемент
+    // touchleave - палец ушел за элемент
+    // touchcancel - палец ушел за пределы браузера
+
+    const boxM = document.querySelector('.boxM');
+
+    boxM.addEventListener('touchstart', (e) => {
+        e.preventDefault;
+        console.log('touchstart');
+        console.log(e.touches);
+    });
+
+    boxM.addEventListener('touchmove', (e) => {
+        e.preventDefault;
+        console.log('touchmove');
+        console.log(e.targetTouches[0].pageY);
+    });
+
+    boxM.addEventListener('touchend', (e) => {
+        e.preventDefault;
+        console.log('touchend');
+    });
+
+    boxM.addEventListener('touchend', (e) => {
+        e.preventDefault;
+        console.log('touchend');
+    });
+
+    // touches - сколько пальцев активно
+    // targetTouches - пальци на элементе
+    // changedTouches - список пальцев с события
+
+
+
+
+});

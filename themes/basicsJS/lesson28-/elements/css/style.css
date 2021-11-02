@@ -102,3 +102,8 @@ button {
    display: block;
    margin-top: 30px;
  }
+ .boxM {
+   width: 150px;
+   height: 100px;
+   background-color: aqua;
+ }
