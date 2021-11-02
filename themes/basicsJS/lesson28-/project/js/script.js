@@ -1,57 +1,96 @@
 'use strict';
 
-const movieDB = {
-    movies: [
-        "Логан",
-        "Лига справедливости",
-        "Ла-ла лэнд",
-        "Одержимость",
-        "Скотт Пилигрим против..."
-    ]
-};
+document.addEventListener('DOMContentLoaded', () => {
+    
+    const movieDB = {
+        movies: [
+            "Логан",
+            "Лига справедливости",
+            "Ла-ла лэнд",
+            "Одержимость",
+            "Скотт Пилигрим против..."
+        ]
+    };
 
-// ищем элементы нужные нам на странице
-const promoAdvImg = document.querySelectorAll('.promo__adv img'),
-      promoGenre = document.querySelector('.promo__genre'),
-      promoBg = document.querySelector('.promo__bg'),
-      promoInteractiveItem = document.querySelectorAll('.promo__interactive-item'),
-      promoInteractiveList = document.querySelector('.promo__interactive-list'),
-      addingInput = document.querySelector('.adding__input'),
-      formAdd = document.querySelector('form.add');
+    // ищем элементы нужные нам на странице
+    const promoAdvImg = document.querySelectorAll('.promo__adv img'),
+          promoGenre = document.querySelector('.promo__genre'),
+          promoBg = document.querySelector('.promo__bg'),
+          promoInteractiveList = document.querySelector('.promo__interactive-list'),
+          addingInput = document.querySelector('.adding__input'),
+          formAdd = document.querySelector('form.add'),
+          inputCheckbox = document.querySelector('[type="checkbox"]');
 
-// функция удаления переданных в нее массива или одного элемента
-promoAdvImg.forEach((item) => {
-    item.remove()
-})
-
-// заменяю текст
-promoGenre.textContent = 'драма';
-
-//заменяю картинку
-promoBg.style.backgroundImage = 'url(../img/bg.jpg)';
-
-// удаляю старый список просмотренных фильмов
-promoInteractiveList.innerHTML = '';
-// сортировка
-movieDB.movies.sort();
-// вывожу новый список из массива
-movieDB.movies.forEach((film, i) => {
-    promoInteractiveList.innerHTML += `
-        <li class="promo__interactive-item">${i+1}: ${film}
-            <div class="delete"></div>
-        </li>
-    `; 
-});
-
-formAdd.addEventListener('submit', (e) => {
-    e.preventDefault();
-    let newFilf = addingInput.value
-    if (newFilf) {
-        movieDB.movies.push(newFilf);
-        movieDB.movies.sort();
+    // функция удаления
+    function deleteAdv (arr) {
+        arr.forEach((item) => {
+            item.remove()
+        })
     }
-})
+    
+    // функция редактирования
+    function editElem () {
+        // заменяю текст
+        promoGenre.textContent = 'драма';
+        //заменяю картинку
+        promoBg.style.backgroundImage = 'url(../img/bg.jpg)';
+    }
+    
+    // функция сортировки сортировка
+    function arrSort (arr) {
+        arr.sort();
+    }
+    
+    // функция создания списка фильмов
+    function createMovieList (movie, list) {
+        // удаляю старый список просмотренных фильмов
+        list.innerHTML = '';
+        // сортировка
+        arrSort(movie);
+        // вывожу новый список из массива
+        movie.forEach((film, i) => {
+            list.innerHTML += `
+                <li class="promo__interactive-item">${i+1}: ${film}
+                    <div class="delete"></div>
+                </li>
+            `; 
+        });
 
+        let listDeleteBut = document.querySelectorAll('.delete');
+        listDeleteBut.forEach((btn, i) => {
+            btn.addEventListener('click', () => {
+                btn.parentElement.remove();
+                movie.splice(i, 1);
+                createMovieList(movie, list);
+            })
+        });
+    }
+    
+    // Добавление нового фильма из формы
+    formAdd.addEventListener('submit', (e) => {
+        e.preventDefault();
+        let newFilf = addingInput.value;
+        let top = inputCheckbox.checked;
+        if (newFilf) {
+            if (newFilf.length> 21) {
+                newFilf = `${newFilf.substring(0, 21)}...`
+            }
+            
+            if (top) {
+                console.log('Добавляем любимый фильм');
+            }
+
+            movieDB.movies.push(newFilf);
+            createMovieList(movieDB.movies, promoInteractiveList);
+        }
+        e.target.reset();
+    });
+    
+
+    deleteAdv(promoAdvImg);
+    editElem();
+    createMovieList(movieDB.movies, promoInteractiveList);
+})
 
 /* Задания на урок:
 
