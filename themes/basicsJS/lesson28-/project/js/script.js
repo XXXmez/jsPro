@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // заменяю текст
         promoGenre.textContent = 'драма';
         //заменяю картинку
-        promoBg.style.backgroundImage = 'url(../img/bg.jpg)';
+        promoBg.style.backgroundImage = 'url(img/bg.jpg)';
     }
     
     // функция сортировки сортировка

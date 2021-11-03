@@ -10,15 +10,19 @@ body {
     margin: 0 auto;
     padding: 20px 0;
 }
-.basicsJS {
+.themeJS {
     text-align: center;
     padding: 10px 0;
     margin-bottom: 10px;
     background-color: #343334;
 }
-.basicsJS > a {
-    color: #838284;
+.themeJS > a {
+    color: #bebdbf;
 }
-.basicsJS > a:hover {
+.themeJS > a:hover {
     color: #bab9bb;
+}
+.point-event-none > a {
+    pointer-events: none;
+    color: #838284;
 }

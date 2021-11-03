@@ -28,10 +28,10 @@
 - [X] Actions with elements on the page
 - [X] Practice 5: Practice Page Actions
 - [X] Events and their handlers
-- [ ] DOM navigation - elements, data attributes, for / of advantage
-- [ ] Practice 6: Using Events on the Project Page
-- [ ] Events on mobile devices
-- [ ] Async, defer, dynamic scripts
+- [X] DOM navigation - elements, data attributes, for / of advantage
+- [X] Practice 6: Using Events on the Project Page
+- [X] Events on mobile devices
+- [X] Async, defer, dynamic scripts
 
 ### JavaScript in work
 - [ ] ClassList and Event Delegation
