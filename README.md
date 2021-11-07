@@ -34,7 +34,7 @@
 - [X] Async, defer, dynamic scripts
 
 ### JavaScript in work
-- [ ] ClassList and Event Delegation
+- [X] ClassList and Event Delegation
 - [ ] Create tabs in a new project
 - [ ] Scripts and their execution time. setTimeout and setInterval
 - [ ] Working with dates
