@@ -88,4 +88,22 @@ window.addEventListener('DOMContentLoaded', () => {
 
     setClock('.timer', deadLine);
 
+
+    const modalButton = document.querySelectorAll('[data-modal]'),
+          modalWindow = document.querySelector('.modal'),
+          modalClose = document.querySelector('[data-close]');
+
+    modalButton.forEach((e) => {
+        e.addEventListener('click', () => {
+            if (window.getComputedStyle(modalWindow).display == 'none') {
+                modalWindow.classList.add('show')
+            }
+        });
+    });
+    
+    modalClose.addEventListener('click', () => {
+        if (modalWindow.classList.contains('show')) {
+            modalWindow.classList.remove('show');
+        }
+    });
 });
