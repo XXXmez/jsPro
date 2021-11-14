@@ -95,15 +95,37 @@ window.addEventListener('DOMContentLoaded', () => {
 
     modalButton.forEach((e) => {
         e.addEventListener('click', () => {
-            if (window.getComputedStyle(modalWindow).display == 'none') {
-                modalWindow.classList.add('show')
-            }
+            // Первый вариант
+            // if (window.getComputedStyle(modalWindow).display == 'none') {
+            //     modalWindow.classList.add('show')
+            //     document.body.style.overflow = 'hidden';
+            // }
+            // Второй вариант
+            modalWindow.classList.add('show');
+            modalWindow.classList.remove('hide');
+            document.body.style.overflow = 'hidden';
         });
     });
     
+    function closeModal () {
+        modalWindow.classList.remove('show');
+        modalWindow.classList.add('hide');
+        document.body.style.overflow = '';
+    }
+
     modalClose.addEventListener('click', () => {
-        if (modalWindow.classList.contains('show')) {
-            modalWindow.classList.remove('show');
+        closeModal();
+    });
+
+    modalWindow.addEventListener('click', (e) => {
+        if (e.target === modalWindow) {
+            closeModal();
+        }
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.code === 'Escape' && modalWindow.classList.contains('show')) {
+            closeModal();
         }
     });
 });
