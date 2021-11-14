@@ -95,23 +95,22 @@ window.addEventListener('DOMContentLoaded', () => {
 
     modalButton.forEach((e) => {
         e.addEventListener('click', () => {
-            // Первый вариант
-            // if (window.getComputedStyle(modalWindow).display == 'none') {
-            //     modalWindow.classList.add('show')
-            //     document.body.style.overflow = 'hidden';
-            // }
-            // Второй вариант
-            modalWindow.classList.add('show');
-            modalWindow.classList.remove('hide');
-            document.body.style.overflow = 'hidden';
+            openModal();
         });
     });
     
+    function openModal () {
+        modalWindow.classList.add('show');
+        modalWindow.classList.remove('hide');
+        document.body.style.overflow = 'hidden';
+        clearInterval(modalTimer);
+    };
+
     function closeModal () {
         modalWindow.classList.remove('show');
         modalWindow.classList.add('hide');
         document.body.style.overflow = '';
-    }
+    };
 
     modalClose.addEventListener('click', () => {
         closeModal();
@@ -128,4 +127,15 @@ window.addEventListener('DOMContentLoaded', () => {
             closeModal();
         }
     });
+
+    const modalTimer = setTimeout(openModal, 6000);
+
+    function showModalByScroll () {
+        if (window.pageYOffset + document.documentElement.clientHeight >= document.documentElement.scrollHeight) {
+            openModal();
+            window.removeEventListener('scroll', showModalByScroll);
+        }
+    };
+
+    window.addEventListener('scroll', showModalByScroll);
 });
