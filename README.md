@@ -35,15 +35,15 @@
 
 ### JavaScript in work
 - [X] ClassList and Event Delegation
-- [ ] Create tabs in a new project
-- [ ] Scripts and their execution time. setTimeout and setInterval
-- [ ] Working with dates
-- [ ] How to create a countdown timer on the website
-- [ ] Document options, windows and work with them
-- [ ] Create a modal window
-- [ ] Modal window modifications
-- [ ] Constructor functions
-- [ ] Call context. This
+- [X] Create tabs in a new project
+- [X] Scripts and their execution time. setTimeout and setInterval
+- [X] Working with dates
+- [X] How to create a countdown timer on the website
+- [X] Document options, windows and work with them
+- [X] Create a modal window
+- [X] Modal window modifications
+- [X] Constructor functions
+- [X] Call context. This
 - [ ] Classes (ES6)
 - [ ] Using classes in real work
 - [ ] Rest operator and default parameters (ES6)
