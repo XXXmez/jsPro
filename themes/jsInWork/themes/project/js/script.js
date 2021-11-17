@@ -128,7 +128,7 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    const modalTimer = setTimeout(openModal, 6000);
+    // const modalTimer = setTimeout(openModal, 6000);
 
     function showModalByScroll () {
         if (window.pageYOffset + document.documentElement.clientHeight >= document.documentElement.scrollHeight) {
@@ -137,5 +137,60 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    window.addEventListener('scroll', showModalByScroll);
+    // window.addEventListener('scroll', showModalByScroll);
+
+    // classes
+    class AddMenuContent {
+        constructor ( perentSelector,img, imgAlt, title, text, price) {
+            this.perentSelector = document.querySelector(perentSelector)
+            this.img = img;
+            this.imgAlt = imgAlt;
+            this.title = title;
+            this.text = text;
+            this.price = price;
+            this.rate = 72;
+            this.changeToRUB();
+        }
+
+        changeToRUB() {
+            this.price = this.price * this.rate;
+        }
+
+        createMenuCart() {
+            const objDiv = document.createElement('div');
+            objDiv.innerHTML = `
+                <div class="menu__item">
+                    <img src="${this.img}" alt="${this.imgAlt}">
+                    <h3 class="menu__item-subtitle">${this.title}"</h3>
+                    <div class="menu__item-descr">${this.text}</div>
+                    <div class="menu__item-divider"></div>
+                    <div class="menu__item-price">
+                        <div class="menu__item-cost">Цена:</div>
+                        <div class="menu__item-total"><span>${this.price}</span> грн/день</div>
+                    </div>
+                </div>
+            `;
+            this.perentSelector.append(objDiv);
+        }
+    }
+
+    new AddMenuContent(
+        '.menu .container',
+        'img/tabs/vegy.jpg',
+        'vegy',
+        'Меню "Фитнес"',
+        'Меню "Фитнес" - это новый подход к приготовлению блюд: больше свежих овощей и фруктов. Продукт активных и здоровых людей. Это абсолютно новый продукт с оптимальной ценой и высоким качеством!',
+        '229' 
+    ).createMenuCart();
+
+    let dataMenu = [
+        {
+            perentSelector: '.menu .container',
+            img: 'img/tabs/vegy.jpg',
+            imgAlt: 'vegy',
+            title: 'Меню "Фитнес"',
+            text: 'Меню "Фитнес" - это новый подход к приготовлению блюд: больше свежих овощей и фруктов. Продукт активных и здоровых людей. Это абсолютно новый продукт с оптимальной ценой и высоким качеством!',
+            price: '229'
+        }
+    ]
 });
