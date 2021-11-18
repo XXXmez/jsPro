@@ -44,9 +44,9 @@
 - [X] Modal window modifications
 - [X] Constructor functions
 - [X] Call context. This
-- [ ] Classes (ES6)
-- [ ] Using classes in real work
-- [ ] Rest operator and default parameters (ES6)
+- [X] Classes (ES6)
+- [X] Using classes in real work
+- [X] Rest operator and default parameters (ES6)
 
 ### Advanced JavaScript
 
