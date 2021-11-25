@@ -37,3 +37,19 @@ req.then((product) => {        // метод then выполняется на п
     console.log('Финал');
 });        
 
+const test = time => {
+    return new Promise(resolve => {
+        setTimeout(() => resolve(), time);
+    })
+};
+// test(1000).then(() => console.log('1s'));
+// test(2000).then(() => console.log('2s'));
+// test(3000).then(() => console.log('3s'));
+
+Promise.all([test(1000), test(2000)]).then(() => {      // all отслеживает выполнение промисов
+    console.log('all');
+});
+
+Promise.race([test(1000), test(2000)]).then(() => {      // race - выпоняется когда выполнится хотя бы один промис
+    console.log('race');
+});
