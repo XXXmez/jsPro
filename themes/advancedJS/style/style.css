@@ -22,12 +22,28 @@ body {
     padding: 10px 0;
     margin-bottom: 10px;
     background-color: #343334;
+    position: relative;
+}
+.themeJS.proj:before {
+    content: 'Проект';
+    font-size: 10px;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    padding: 2px 5px;
+    background-color: #221122;
+    color: #9A989A;
+    border-radius: 5px;
+    
 }
 .themeJS > a {
     color: #bebdbf;
+    max-width: 75%;
+    display: block;
+    margin: 0 auto;
 }
 .themeJS > a:hover {
-    color: #bab9bb;
+    color: #97929d;
 }
 .point-event-none > a {
     pointer-events: none;
