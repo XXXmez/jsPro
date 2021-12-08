@@ -191,12 +191,41 @@ window.addEventListener('DOMContentLoaded', () => {
         return await result.json();                      // тоже ждем
     };
 
+    // Первый способ с использованием классов
+    // getResource('http://localhost:3000/menu')
+    // .then(data => {
+    //     data.forEach(({img, altimg, title, descr, price}) => {
+    //         new AddMenuContent(img, altimg, title, descr, price, '.menu .container').createMenuCart();
+    //     });
+    // });
+
+    // Второй способ делает верстку по ходу дела
     getResource('http://localhost:3000/menu')
-    .then(data => {
+    .then(data => createCard(data));
+
+    function createCard(data) {
         data.forEach(({img, altimg, title, descr, price}) => {
-            new AddMenuContent(img, altimg, title, descr, price, '.menu .container').createMenuCart();
+            const element = document.createElement('div');
+            let rate = 62;
+
+            price *= rate;
+
+            element.classList.add('menu__item')
+
+            element.innerHTML = `
+                <img src="${img}" alt="${altimg}">
+                <h3 class="menu__item-subtitle">${title}"</h3>
+                <div class="menu__item-descr">${descr}</div>
+                <div class="menu__item-divider"></div>
+                <div class="menu__item-price">
+                    <div class="menu__item-cost">Цена:</div>
+                    <div class="menu__item-total"><span>${price}</span> руб/день</div>
+                </div>
+            `;
+
+            document.querySelector('.menu .container').append(element);
         });
-    });
+    };
 
     // new AddMenuContent(
     //     '.menu .container',
