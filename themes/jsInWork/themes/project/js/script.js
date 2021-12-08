@@ -200,32 +200,40 @@ window.addEventListener('DOMContentLoaded', () => {
     // });
 
     // Второй способ делает верстку по ходу дела
-    getResource('http://localhost:3000/menu')
-    .then(data => createCard(data));
+    // getResource('http://localhost:3000/menu')
+    // .then(data => createCard(data));
 
-    function createCard(data) {
-        data.forEach(({img, altimg, title, descr, price}) => {
-            const element = document.createElement('div');
-            let rate = 62;
+    // function createCard(data) {
+    //     data.forEach(({img, altimg, title, descr, price}) => {
+    //         const element = document.createElement('div');
+    //         let rate = 62;
 
-            price *= rate;
+    //         price *= rate;
 
-            element.classList.add('menu__item')
+    //         element.classList.add('menu__item')
 
-            element.innerHTML = `
-                <img src="${img}" alt="${altimg}">
-                <h3 class="menu__item-subtitle">${title}"</h3>
-                <div class="menu__item-descr">${descr}</div>
-                <div class="menu__item-divider"></div>
-                <div class="menu__item-price">
-                    <div class="menu__item-cost">Цена:</div>
-                    <div class="menu__item-total"><span>${price}</span> руб/день</div>
-                </div>
-            `;
+    //         element.innerHTML = `
+    //             <img src="${img}" alt="${altimg}">
+    //             <h3 class="menu__item-subtitle">${title}"</h3>
+    //             <div class="menu__item-descr">${descr}</div>
+    //             <div class="menu__item-divider"></div>
+    //             <div class="menu__item-price">
+    //                 <div class="menu__item-cost">Цена:</div>
+    //                 <div class="menu__item-total"><span>${price}</span> руб/день</div>
+    //             </div>
+    //         `;
 
-            document.querySelector('.menu .container').append(element);
+    //         document.querySelector('.menu .container').append(element);
+    //     });
+    // };
+
+    // Теперь с использованием библиотеки axios
+    axios.get('http://localhost:3000/menu')
+    .then(data => {
+        data.data.forEach(({img, altimg, title, descr, price}) => {
+            new AddMenuContent(img, altimg, title, descr, price, '.menu .container').createMenuCart();
         });
-    };
+    });
 
     // new AddMenuContent(
     //     '.menu .container',
