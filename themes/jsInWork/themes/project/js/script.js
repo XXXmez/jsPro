@@ -192,11 +192,11 @@ window.addEventListener('DOMContentLoaded', () => {
     };
 
     getResource('http://localhost:3000/menu')
-        .then(data => {
-            data.forEach(({img, altimg, title, descr, price}) => {
-                new AddMenuContent(img, altimg, title, descr, price, '.menu .container').render();
-            })
-        })
+    .then(data => {
+        data.forEach(({img, altimg, title, descr, price}) => {
+            new AddMenuContent(img, altimg, title, descr, price, '.menu .container').createMenuCart();
+        });
+    });
 
     // new AddMenuContent(
     //     '.menu .container',
@@ -335,5 +335,5 @@ window.addEventListener('DOMContentLoaded', () => {
 
     fetch('http://localhost:3000/menu')
         .then(data => data.json())
-        .then(res => console.log(res));
+        .then(result => console.log(/*result */));
 });
