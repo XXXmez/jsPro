@@ -373,4 +373,22 @@ window.addEventListener('DOMContentLoaded', () => {
     fetch('http://localhost:3000/menu')
         .then(data => data.json())
         .then(result => console.log(/*result */));
+
+    
+    // sliders
+    const offerSlides = document.querySelectorAll('.offer__slide');
+    let sliderNav = document.querySelector('.offer__slider-counter');
+    let sliderCounterCurrent = document.querySelector('.offer__slider-counter #current');
+    let sliderCounterTotal = document.querySelector('.offer__slider-counter #total');
+    let prevSlide = document.querySelector('.offer__slider-prev');
+    let nextSlide = document.querySelector('.offer__slider-next');
+    sliderCounterTotal.textContent = '0' + offerSlides.length;
+    function rewindSlides () {
+        
+    }
+    sliderNav.addEventListener('click', (e) => {
+        console.log(e.target);
+        if (e.target) {}
+    })
+    console.log(sliderCounterTotal);
 });
