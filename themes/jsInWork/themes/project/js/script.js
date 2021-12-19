@@ -518,10 +518,6 @@ window.addEventListener('DOMContentLoaded', () => {
     function noStr(str) {
         return +str.replace(/\D/g,'')
     }
-    
-    
-
-
 
 
     // слайдер 1
@@ -557,5 +553,71 @@ window.addEventListener('DOMContentLoaded', () => {
     // };
 
     // prev.addEventListener('click', minusSlide);
-    // next.addEventListener('click', plusSlide)
+    // next.addEventListener('click', plusSlide);
+
+
+    // calc calorie
+
+    const resultCalc = document.querySelector('.calculating__result span');
+    let gender = 'female',
+        height, weight, age, 
+        activity = 1.375;
+
+    function colorieCalc() {
+        if (!gender || !height || !weight || !age || !activity) {
+            resultCalc.textContent = '____';
+            return;
+        }
+
+        if (gender === 'female') {
+            resultCalc.textContent = Math.floor((447.6 + (9.2 * weight) + (3.1 * height) - (4.3 * age)) * activity);
+        } else {
+            resultCalc.textContent = Math.floor((88.36 + (13.4 * weight) + (4.8 * height) - (5.7 * age)) * activity);
+        }
+    }
+    colorieCalc();
+
+    function getStaticInfo(parentSelector, activeClass) {
+        const element = document.querySelectorAll(`${parentSelector} div`);
+
+        element.forEach(elem => {
+            elem.addEventListener('click', () => {
+                if (elem.getAttribute('data-ratio')) {
+                    activity = elem.getAttribute('data-ratio');
+                } else {
+                    gender = elem.id;
+                }
+                console.log(activity, gender);
+                element.forEach(e => e.classList.remove(activeClass));
+                elem.classList.add(activeClass);
+
+                colorieCalc();
+            });
+        });
+    };
+
+    function getDinamicInfo(parentSelector) {
+        const input = document.querySelector(`${parentSelector}`);
+
+        input.addEventListener('input', () => {
+            switch(input.getAttribute('id')) {
+                case 'height':
+                    height = +input.value;
+                    break;
+                case 'weight':
+                    weight = +input.value;
+                    break;
+                case 'age':
+                    age = +input.value;
+                    break;
+            }
+            colorieCalc();
+        });
+    };
+
+    getStaticInfo('#gender', 'calculating__choose-item_active');
+    getStaticInfo('.calculating__choose_big', 'calculating__choose-item_active');
+    getDinamicInfo('#height');
+    getDinamicInfo('#weight');
+    getDinamicInfo('#age');
 });
