@@ -69,3 +69,34 @@ ruslan._userAge = 23
 console.log(ruslan._userAge);
 // console.log(ruslan.#surname);            // error - нельзя обращаться к приватным свойствам
 ruslan.say();
+
+
+// ДЗ
+class privatProperty {
+    constructor (name, age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    #surname = 'Bog';
+
+    hello() {
+        console.log(`Привет, меня зовут ${this.name} ${this.#surname}, мне ${this.age} лет`);
+    }
+
+    get privatProp () {
+        console.log(this.#surname);
+    }
+    
+    set privatProp (sur) {
+        this.#surname = sur;
+    }
+}
+
+const rus = new privatProperty('Ruslan', 24);
+rus.hello();
+// console.log(rus.#surname);           // Через # нельзя обращаться будет ошиька
+// console.log(rus.surname);            // undefined
+rus.privatProp;
+rus.privatProp = 'Bogdanov';
+rus.hello();
