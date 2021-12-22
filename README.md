@@ -71,17 +71,17 @@
 - [X] Encapsulation
 - [X] Reception module, how and why to use it
 - [X] Webpack. Putting together our project
-- [] ES6 Modules
-- [] Putting together our project and fixing bugs
-- [] We form a portfolio on GitHub
-- [] Errors. How to avoid breaking your code
-- [] How to turn ES6 + code into legacy ES5 format. Babel, Core.js and polyfills
-- [] Modern libraries and frameworks
-- [] Jquery library
-- [] Generator functions
-- [] JS animations, requestAnimationFrame
-- [] Event loop, detailed work of asynchronous and synchronous operations
-- [] We work with ready-made code
+- [ ] ES6 Modules
+- [ ] Putting together our project and fixing bugs
+- [ ] We form a portfolio on GitHub
+- [ ] Errors. How to avoid breaking your code
+- [ ] How to turn ES6 + code into legacy ES5 format. Babel, Core.js and polyfills
+- [ ] Modern libraries and frameworks
+- [ ] Jquery library
+- [ ] Generator functions
+- [ ] JS animations, requestAnimationFrame
+- [ ] Event loop, detailed work of asynchronous and synchronous operations
+- [ ] We work with ready-made code
 
 ## Framework React
 ### React basics
