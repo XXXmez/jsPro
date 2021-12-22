@@ -1,4 +1,4 @@
-const myModule = require('./script/main');
+const myModule = require('./main');
 
 const myModuleInstance = new myModule();
 
