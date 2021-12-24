@@ -1,3 +1,5 @@
+import {getResource} from '../services/services'
+
 function cards() {
     // classes
     class AddMenuContent {
@@ -42,15 +44,15 @@ function cards() {
         }
     }
 
-    const getResource = async (url) => {                 // отвечает за постинг данных (отправку на сервер) / async - предупреждаем что тут будет асинхрон.
-        const result = await fetch(url);
+    // async function getResource(url) {                 // отвечает за постинг данных (отправку на сервер) / async - предупреждаем что тут будет асинхрон.
+    //     const result = await fetch(url);
 
-        if (!result.ok) {
-            throw new Error(`Could not fetch ${url}, status: ${result.status}`);
-        }
+    //     if (!result.ok) {
+    //         throw new Error(`Could not fetch ${url}, status: ${result.status}`);
+    //     }
 
-        return await result.json();                      // тоже ждем
-    };
+    //     return await result.json();                      // тоже ждем
+    // };
 
     // Первый способ с использованием классов
     // getResource('http://localhost:3000/menu')
@@ -128,4 +130,4 @@ function cards() {
     // ).createMenuCart();
 }
 
-module.exports = cards;
+export default cards;

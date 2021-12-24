@@ -1,9 +1,12 @@
-function forms() {
-    // forms
-    const forms = document.querySelectorAll('form');
+import {closeModal, openModal} from './modal';
+import {postData} from '../services/services';
 
+function forms(formSelector, modalTimerId) {
+    // forms
+    const forms = document.querySelectorAll(formSelector);
+    
     const message = {
-        loading: 'img/other/spinner.svg',
+        loading: './img/other/spinner.svg',
         success: 'Спасибо! Мы вам перезвоним!',
         failure: 'Что-то пошло не так...'
     };
@@ -12,16 +15,16 @@ function forms() {
         bindPostData(item);
     });
 
-    const postData = async (url, data) => {                 // отвечает за постинг данных (отправку на сервер) / async - предупреждаем что тут будет асинхрон.
-        const result = await fetch(url, {                   // await - нужно ждать загрузки этого кода
-            method: "POST",
-            headers: {
-                'Content-type': 'application/json'
-            },
-            body: data
-        });
-        return await result.json();                         // тоже ждем
-    };
+    // const postData = async (url, data) => {                 // отвечает за постинг данных (отправку на сервер) / async - предупреждаем что тут будет асинхрон.
+    //     const result = await fetch(url, {                   // await - нужно ждать загрузки этого кода
+    //         method: "POST",
+    //         headers: {
+    //             'Content-type': 'application/json'
+    //         },
+    //         body: data
+    //     });
+    //     return await result.json();                         // тоже ждем
+    // };
 
     function bindPostData(form) {           // отвечает за привязку постинга
         form.addEventListener('submit', (e) => {
@@ -81,7 +84,7 @@ function forms() {
 
         prevModalDialog.classList.add('hide');
         
-        openModal();
+        openModal('.modal', modalTimerId);
         
         const thanksModal = document.createElement('div');
         thanksModal.classList.add('modal__dialog');
@@ -92,13 +95,13 @@ function forms() {
             </div>
         `;
         
-        modalWindow.append(thanksModal);
+        document.querySelector('.modal').append(thanksModal);
 
         setTimeout(() => {
             thanksModal.remove();
             prevModalDialog.classList.remove('hide');
             prevModalDialog.classList.add('show');
-            closeModal();
+            closeModal('.modal');
         }, 5000);
     }
 
@@ -107,4 +110,4 @@ function forms() {
         .then(result => console.log(/*result */));
 };
 
-module.exports = forms;
+export default forms;
