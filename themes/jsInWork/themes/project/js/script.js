@@ -1,3 +1,6 @@
+require('es6-promise').polyfill();
+import 'nodelist-foreach-polyfill';
+
 import tabs from './modules/tabs';
 import modal from './modules/modal';
 import calc from './modules/calc';
@@ -26,7 +29,7 @@ window.addEventListener('DOMContentLoaded', () => {
         field: '.offer__slider-inner',
         slide: '.offer__slide'
     });
-    timer('.timer', '2021-12-31');
+    timer('.timer', '2022-06-01');
 
     // tabs
 
